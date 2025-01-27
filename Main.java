@@ -1,29 +1,22 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("");
-        inputThenPrintSumAndAvarege();
+        System.out.println((isPerfectNumber(6)));
     }
 
-    public static void inputThenPrintSumAndAvarege() {
-        boolean isInt = true;
-        Scanner scanner = new Scanner(System.in);
-        int sum = 0;
-        int avg = 0;
-        int count = 0;
+    public static boolean isPerfectNumber(int number){
+        if(number < 1) {
+            return false;
+        }
 
-        while (isInt) {
-            try {
-                System.out.println("Digite um número inteiro: ");
-                int num = scanner.nextInt();
-                count += 1;
-                sum += num;
-                avg = sum / count;
-            } catch (java.util.InputMismatchException err) {
-                scanner.close();
-                System.out.println("SUM: " + sum + " " + "AVG: " + avg);
+        int sum = 0;
+
+        for(int i = 1; i <= number / 2; i++){
+            if(number % i == 0){
+                sum += i;
             }
         }
+
+        return sum == number;
     }
 }
