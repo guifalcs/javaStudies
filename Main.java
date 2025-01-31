@@ -1,11 +1,19 @@
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        int [] arr = {57, 10, 3, 22, 5, 6};
-        SortedArrays sortedArr = new SortedArrays(arr);
         System.out.println("");
-        System.out.println(Arrays.toString(sortedArr.getArr()));
+
+        MobilePhone meuCellphone = new MobilePhone("1234567890");
+        Contact poatan = Contact.createContact("Poatan", "0987654321");
+        Contact alex = Contact.createContact("Alex Poatan", "0987654321");
+
+
+        meuCellphone.addNewContact(Contact.createContact(poatan.getName(), poatan.getPhoneNumber()));
+        meuCellphone.addNewContact(Contact.createContact(alex.getName(), alex.getPhoneNumber()));
+        meuCellphone.printContacts();
+        System.out.println("Vou remover o alex");
+        meuCellphone.removeContact(alex);
+        meuCellphone.printContacts();
+
     }
 
 }
